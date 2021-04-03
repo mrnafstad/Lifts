@@ -2,9 +2,10 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="black"
       dark
     >
+    <span @click="$router.push('/CurrentExercise')" class="menu-item">Current Exercise</span>
     <v-spacer></v-spacer>
       <v-menu>
         <template v-slot:activator="{ on, attrs }">
@@ -19,6 +20,8 @@
             <v-list-item-title @click="$router.push(route.path)" class="menu-item">{{ route.name }}</v-list-item-title>
           </v-list-item>
         </v-list>
+        <v-switch label="Advanced" @click.stop="toggleAdvanced" class="advanced-switch">
+        </v-switch>
       </v-menu>
     </v-app-bar>
 
@@ -35,10 +38,18 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class App extends Vue {
   public routes = this.$router.options.routes;
+
+  public toggleAdvanced(): void {
+    // toggle advanced view
+  }
 }
 </script>
 <style scoped>
 .menu-item {
   cursor: pointer;
+}
+
+.advanced-switch {
+  padding: 0 15px;
 }
 </style>
