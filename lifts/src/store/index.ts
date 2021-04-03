@@ -1,15 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import { IProfileModule } from './modules/profile';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+export interface IRootState {
+  profile: IProfileModule,
+}
+
+export default new Vuex.Store<IRootState>({
+});
