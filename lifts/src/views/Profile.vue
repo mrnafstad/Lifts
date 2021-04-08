@@ -19,14 +19,12 @@
        </v-col>
      </v-row>
    </v-container>
-
 </template>
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator';
 import { UserModule } from '@/store/modules/user';
 import { User } from '@/backend/interfaces';
-
 
 @Component({
   components: {
