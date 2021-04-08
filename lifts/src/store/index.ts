@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { IProfileModule } from './modules/profile';
+import { IUserModule } from './modules/user';
 
 Vue.use(Vuex);
 
 export interface IRootState {
-  profile: IProfileModule,
+  user: IUserModule,
 }
 
 export default new Vuex.Store<IRootState>({
