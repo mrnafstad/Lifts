@@ -31,10 +31,10 @@ import { User } from '@/backend/interfaces';
   },
 })
 export default class Profile extends Vue {
-  public user: User = UserModule.getUser;
+  public user: User = UserModule.user;
 
   public mounted(): void {
-    console.log(UserModule.getUser);
+    console.log(UserModule);
     
   }
 

@@ -1,24 +1,30 @@
 import { VuexModule, Module, getModule, Action, Mutation } from 'vuex-module-decorators';
 import store from '@/store';
 import { User } from '@/backend/interfaces';
-
-
-
+import { LiftStorage } from '@/backend/vuexLocalForage';
 
 export interface IUserModule {
     user: User,
 }
 
-@Module({dynamic: true, store, name: 'user'})
+@Module({dynamic: true, store, name: 'user', namespaced: true})
 class user extends VuexModule implements IUserModule {
     public user: User = {
-        userName: '',
-        firstName: '',
-        lastName: '',
+        userName: 'IronMan',
+        firstName: 'John',
+        lastName: 'Doe',
         authState: true,
     }
 
+    @Action({ commit: 'setStateMutation' })
+    public setStateFromStorage(user: User) {
+        return user;
+    }
 
+    @Mutation
+    public setStateMutation(user: User) {
+        this.user = user;
+    }
 
     @Action({ commit: 'updateUserNameMutation' })
     public updateUserName(newName: string) {
@@ -50,9 +56,15 @@ class user extends VuexModule implements IUserModule {
         this.user.lastName = newName;
     }
 
-    public get getUser(): User {
+    public get getState() {
         return this.user;
     }
+
+    // public get getUser(): User {
+    //     return this.user;
+    // }
 }
 
+
 export const UserModule = getModule(user);
+new LiftStorage(UserModule, 'user');
