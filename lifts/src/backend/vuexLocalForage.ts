@@ -1,5 +1,6 @@
 import localForage from 'localforage';
 import { VuexModule } from 'vuex-module-decorators';
+import store from '@/store';
 
 /* eslint-disable */
 
@@ -20,6 +21,20 @@ export class LiftStorage {
                 // eslint-disable-next-line
                 localForage.setItem(moduleName, module.getState)
             }
+
+            store.subscribe((mutation, state) => {
+                if (mutation.type !== 'setStateMutation') {
+                    console.log("Mutation detected!");
+                    const newState = module.getState;
+                    console.log(newState);
+                    
+                    localForage.setItem(moduleName, newState).then(res => {
+                        console.log(res);
+                        
+                    });
+                }
+                
+            })
         })
     }
 }

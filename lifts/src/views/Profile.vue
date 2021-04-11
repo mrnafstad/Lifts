@@ -3,7 +3,7 @@
      <v-row>
        <v-col>Username:</v-col>
        <v-col>
-         <v-text-field :value="user.userName" @change="updateUserName"></v-text-field>
+         <v-text-field :value="user.userName" @input="updateUserName"></v-text-field>
        </v-col>
      </v-row>
     <v-row>
@@ -31,10 +31,10 @@ import { User } from '@/backend/interfaces';
   },
 })
 export default class Profile extends Vue {
-  public user: User = UserModule.user;
+  public user: User = UserModule.getUser;
 
   public mounted(): void {
-    console.log(UserModule);
+    // console.log(UserModule);
     
   }
 

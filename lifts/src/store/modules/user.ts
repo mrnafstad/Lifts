@@ -7,12 +7,12 @@ export interface IUserModule {
     user: User,
 }
 
-@Module({dynamic: true, store, name: 'user', namespaced: true})
+@Module({dynamic: true, store, name: 'user'})
 class user extends VuexModule implements IUserModule {
     public user: User = {
-        userName: 'IronMan',
-        firstName: 'John',
-        lastName: 'Doe',
+        userName: '',
+        firstName: '',
+        lastName: '',
         authState: true,
     }
 
@@ -60,11 +60,15 @@ class user extends VuexModule implements IUserModule {
         return this.user;
     }
 
+    public get getUser() {
+        return this.user;
+    }
+
     // public get getUser(): User {
     //     return this.user;
     // }
 }
 
 
+new LiftStorage(getModule(user), 'user');
 export const UserModule = getModule(user);
-new LiftStorage(UserModule, 'user');
