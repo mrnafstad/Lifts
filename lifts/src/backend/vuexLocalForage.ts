@@ -17,21 +17,13 @@ export class LiftStorage {
             if (res) {
                 // eslint-disable-next-line
                 module.setStateFromStorage(res);
-            } else {
-                // eslint-disable-next-line
-                localForage.setItem(moduleName, module.getState)
             }
 
-            store.subscribe((mutation, state) => {
+            store.subscribe((mutation, payload) => {
                 if (mutation.type !== 'setStateMutation') {
-                    console.log("Mutation detected!");
                     const newState = module.getState;
-                    console.log(newState);
                     
-                    localForage.setItem(moduleName, newState).then(res => {
-                        console.log(res);
-                        
-                    });
+                    localForage.setItem(moduleName, newState);
                 }
                 
             })
