@@ -1,3 +1,4 @@
+
 export type Nullable<T> = T | null;
 
 export interface User {
@@ -7,13 +8,23 @@ export interface User {
     authState: boolean;
 }
 
+export interface WorkOutSession {
+    sets: Set[];
+    date: Date;
+    id: number;
+    comment?: string;
+    workoutScore?: number;
+    dailyFitnes?: number;
+    duration?: number;
+}
+
 export interface Set {
     exercise: Exercise;
     type: string;
     rpe?: number;
     repetitions?: number;
     time?: number;
-    weight?: Weight;
+    weight?: number;
 }
 
 export interface Cardio {
@@ -42,7 +53,7 @@ export interface Exercise {
     name: string;
     type: ExerciseType;
     note: string;
-    bodyParts?: BodyPart;
+    bodyPart?: BodyPart;
     mainMuscles?: string;
 }
 
@@ -62,7 +73,3 @@ export enum WeightUnit {
     LBS
 }
 
-export interface Weight {
-    unit: WeightUnit;
-    value: number;
-}
