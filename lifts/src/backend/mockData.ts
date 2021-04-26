@@ -1,4 +1,4 @@
-import { Set, BodyPart, ExerciseType, Exercise, WeightUnit, Weight, WorkOutSession } from './interfaces';
+import { ExerciseSet, BodyPart, ExerciseType, Exercise, WorkOutSession } from './interfaces';
 
 export const squat: Exercise = {
     type: ExerciseType.REGULAR,
@@ -26,44 +26,44 @@ export const hangUp: Exercise = {
 
 export const exercises: Exercise[] = [squat, benchPress, hangUp];
 
-export const set1: Set = {
+export const set1: ExerciseSet = {
     type: 'regular',
     exercise: squat,
     weight: 80,
     repetitions: 5,   
 }
-export const set2: Set = {
+export const set2: ExerciseSet = {
     type: 'regular',
     exercise: squat,
     weight: 80,
     repetitions: 5,   
 }
-export const set3: Set = {
+export const set3: ExerciseSet = {
     type: 'regular',
     exercise: squat,
     weight: 80,
     repetitions: 5,   
 }
 
-export const set4: Set = {
+export const set4: ExerciseSet = {
     type: 'regular',
     exercise: benchPress,
     weight: 80,
     repetitions: 5,   
 }
-export const set5: Set = {
+export const set5: ExerciseSet = {
     type: 'regular',
     exercise: benchPress,
     weight: 80,
     repetitions: 5,   
 }
-export const set6: Set = {
+export const set6: ExerciseSet = {
     type: 'regular',
     exercise: benchPress,
     weight: 80,
     repetitions: 5,   
 }
-export const set7: Set = {
+export const set7: ExerciseSet = {
     type: 'regular',
     exercise: hangUp,
     weight: 80,

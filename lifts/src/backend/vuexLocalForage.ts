@@ -20,12 +20,11 @@ export class LiftStorage {
             }
 
             store.subscribe((mutation, payload) => {
-                if (mutation.type !== 'setStateMutation') {
+                if (mutation.type !== 'setStateMutation' && mutation.type.includes(moduleName)) {
                     const newState = module.getState;
                     
                     localForage.setItem(moduleName, newState);
                 }
-                
             })
         })
     }

@@ -9,7 +9,7 @@ export interface User {
 }
 
 export interface WorkOutSession {
-    sets: Set[];
+    sets: ExerciseSet[];
     date: Date;
     id: number;
     comment?: string;
@@ -18,7 +18,7 @@ export interface WorkOutSession {
     duration?: number;
 }
 
-export interface Set {
+export interface ExerciseSet {
     exercise: Exercise;
     type: string;
     rpe?: number;
