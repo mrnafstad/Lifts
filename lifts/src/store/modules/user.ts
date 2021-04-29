@@ -9,7 +9,7 @@ export interface IUserModule {
     user: User,
 }
 
-@Module({dynamic: true, store, name: 'user'})
+@Module({dynamic: true, namespaced: true, store, name: 'user'})
 class user extends VuexModule implements IUserModule {
     public user: User = {
         userName: '',

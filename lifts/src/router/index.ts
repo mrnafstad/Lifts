@@ -4,9 +4,6 @@ import Home from '../views/Home.vue'
 import Logg from '../views/Logg.vue'
 import Profile from '../views/Profile.vue'
 import CurrentExercise from '../views/CurrentExercise.vue'
-import TodaysWorkout from '../views/TodaysWorkout.vue'
-
-import { UserModule } from '@/store/modules/user';
 
 
 Vue.use(VueRouter)
@@ -32,11 +29,6 @@ const routes: Array<RouteConfig> = [
     name: 'Current exercise',
     component: CurrentExercise
   },
-{
-  path: `/TodaysWorkout`,
-  name: 'Todays Workout',
-  component: TodaysWorkout
-},
 ]
 
 const router = new VueRouter({
